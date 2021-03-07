@@ -3,8 +3,10 @@ services:
   app:
     build:
       context: .
-    command: bundle exec puma -C config/puma.rb
-
+# =========ローカルと本番切り替え===========
+    command: bundle exec puma -C config/puma.rb -e production
+    # command: bundle exec puma -C config/puma.rb
+# ======================================
     volumes:
       - .:/study_app_aws
       - public-data:/study_app_aws/public
@@ -12,21 +14,21 @@ services:
       - log-data:/study_app_aws/log
     networks:
       - study_app_aws-network
-    depends_on:
-      - db
+  #   depends_on:
+  #     - db
 
-  db:
-    image: mysql:8.0
-    command: --default-authentication-plugin=mysql_native_password
-    environment:
-      MYSQL_ROOT_PASSWORD: password
-      MYSQL_USER: user
-      MYSQL_PASSWORD: password
-      MYSQL_DATABASE: study_app_aws_development
-    volumes:
-      - db-data:/var/lib/mysql
-    networks:
-      - study_app_aws-network
+  # db:
+  #   image: mysql:8.0
+  #   command: --default-authentication-plugin=mysql_native_password
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: password
+  #     MYSQL_USER: user
+  #     MYSQL_PASSWORD: password
+  #     MYSQL_DATABASE: study_app_aws_development
+  #   volumes:
+  #     - db-data:/var/lib/mysql
+  #   networks:
+  #     - study_app_aws-network
 
   web:
     build:
