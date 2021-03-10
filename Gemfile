@@ -29,6 +29,19 @@ gem 'dotenv-rails'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
+
+gem "chartkick"
+gem "jquery-rails"
+gem "simple_calendar"
+gem "bcrypt", "3.1.13"
+gem "faker", "2.1.2"
+gem "will_paginate", "3.1.8"
+gem "bootstrap-will_paginate", "1.0.0"
+gem "bootstrap-sass", "3.4.1"
+
+gem "rails-i18n"
+
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
