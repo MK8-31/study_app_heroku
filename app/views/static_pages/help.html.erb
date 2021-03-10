@@ -1,0 +1,29 @@
+<%= provide(:title,"ヘルプ") %>
+
+<h1>ヘルプ</h1>
+
+<div class="row">
+    <div class="col-md-8 col-md-offset-2 wht">
+        <h1 class="black">アプリのコンセプト</h1>
+        <p>このアプリは、時間割を登録するついでに学習管理や予定管理ができたら便利だと思い制作しました。</p>
+
+        <h1 class="black">基本的な使い方</h1>
+        <p>ヘッダーにある[時間割]<%= link_to '[時間割追加]',subjects_new_path %>から時間割に科目を登録</p>
+        <p class="black">↓</p>
+        <p>授業で課題やテストが出たら、<%= link_to '[時間割を見る]',subjects_path %>に行き、科目名の下の、[課題｜テスト]から予定を追加する</p>
+        <p>あるいは</p>
+        <p>授業で課題やテストが出たら、ヘッダーにある[課題・テスト]<%= link_to '[課題を追加]',notifications_new_path(homework_test: false) %>または<%= link_to '[テストを追加]',notifications_new_path(homework_test: true) %>で予定を追加</p>
+        <p>追加された予定は前日にメールでお知らせが届くため、万が一を回避することができる。</p>
+        <p class="black">↓</p>
+        <p>一日の終りに自分の学習時間を振り返り、ヘッダーにある[学習時間]<%= link_to '[記録する]',studytimes_new_path %>で時間を記録。</p>
+        <h1 class="black">使用技術</h1>
+        <p>
+        ruby on rails 6<br>
+        RSpec <br>
+        Docker <br>
+        jquery<br>
+        </p>
+
+    </div>
+</div>
+

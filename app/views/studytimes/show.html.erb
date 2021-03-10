@@ -1,0 +1,16 @@
+<% provide(:title, "学習時間グラフ") %>
+
+
+<h1>学習時間</h1>
+<div class="row">
+    <div class="col-md-6 col-md-offset-3 wht">
+        <%= column_chart @studytimes.group(:day).sum(:time),xtitle: "日付",ytitle: "合計時間（分）" %>
+
+        <%= pie_chart ({ "集中できなかった時間（分）": @studynotime,"集中できた時間（分）": @studyctime }) %>
+        
+        <%= link_to "記録する",studytimes_new_path %>
+
+    </div>
+
+</div>
+

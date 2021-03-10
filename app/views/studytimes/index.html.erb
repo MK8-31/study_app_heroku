@@ -1,0 +1,33 @@
+<% provide(:title, "学習時間一覧") %>
+
+
+<div class="row studytime">
+    <div class="col align-self-center wht">
+        
+        <table class="table">
+            <thead>
+                <tr>
+                    <td>日付</td>
+                    <td>合計時間</td>
+                    <td>集中できた時間</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                <%= will_paginate %>
+                <% @studytimes.each do |studytime| %>
+                    
+                        <td><%= studytime.day %></td>
+                        <td><%= studytime.time %>分</td>
+                        <td><%= studytime.ctime %>分</td>
+                        <td><%= link_to "編集",edit_studytime_path(studytime) %></td>
+                        <td><%= link_to "削除",studytime,method: :delete %></td>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+
+    </div>
+</div>
+

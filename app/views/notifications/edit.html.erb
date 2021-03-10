@@ -1,0 +1,31 @@
+<% provide(:title,"予定表を編集") %>
+
+<% if @homework_test == "true" %>
+    <h1>テスト予定編集</h1>
+<% else %>
+    <h1>課題予定編集</h1>
+<% end %>
+
+
+
+<div class="row">
+    <div class="col-md-6 col-md-offset-3 wht notice">
+        <%= form_with(model: @notice,local: true) do |f| %>
+            <%= render 'shared/error_messages',object: f.object %>
+            
+            <b>予定名</b>
+
+            <%= f.text_field :subject,:value => @notice.subject %>
+            
+            <b>日付</b>
+            <%= f.datetime_select :start_time,:value => @notice.start_time,class: 'bootstrap-date', datetime_separator: '<b class="fb-txt font-weight-bold my-2">時間</b>' %>
+            
+            <%= f.hidden_field :homework_test,:value => @notice.homework_test %>
+            
+            <%= f.hidden_field :over, :value => false %>
+            
+            <%= f.submit "変更",class: "btn btn-primary" %>
+        <% end %>
+            
+    </div>
+</div>

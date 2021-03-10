@@ -1,0 +1,29 @@
+<% provide(:title,"時間割を追加") %>
+<h1>追加</h1>
+
+<div class="row">
+    <div class="col-md-6 col-md-offset-3 wht">
+        <%= form_with(model: @subject,local: true) do |f| %>
+            <%= render 'shared/error_messages',object: f.object %>
+
+            <%= f.label :name,value: "科目名" %>
+            <%= f.text_field :name %>
+            
+            <%= f.label :day_of_week,value: "曜日" %>
+            <%= f.select :day_of_week,[["月曜日","Monday"],["火曜日","Tuesday"],["水曜日","Wednesday"],["木曜日","Thursday"],["金曜日","Friday"],["土曜日","Saturday"]], include_blank: "選択してください" %>
+            
+            <%= f.label :th_period,value: "時限" %>
+            <%= f.select :th_period,[["1","1"],["2","2"],["3","3"],["4","4"],["5","5"],["6","6"]],include_blank: "選択してください" %>
+            
+            <%= f.label :definitely,class: "checkbox inline" do %>
+                <%= f.check_box :definitely,{checked: false},checked_value = true,unchecked_value = false %>
+                <span>必修科目</span>
+            <% end %>
+            
+            
+        
+            <%= f.submit "追加",class: "btn btn-primary" %>
+    <% end %>
+
+    </div>
+</div>

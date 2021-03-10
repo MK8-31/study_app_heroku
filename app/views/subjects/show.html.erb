@@ -1,0 +1,60 @@
+<% provide(:titel,"時間割") %>
+<h1>時間割</h1>
+
+<div class="row subject">
+    <div class="table-responsive wht">
+        <p>必修科目は<span class="red">赤</span>で表示されます。</p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>時限</th>
+                    <th>月曜日</th>
+                    <th>火曜日</th>
+                    <th>水曜日</th>
+                    <th>木曜日</th>
+                    <th>金曜日</th>
+                    <th>土曜日</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% (0..5).each do |n| %>
+                    <tr>
+                        <th><%= n+1 %></th>
+                        <td><% if @Mo[n] != "" %>
+                                <span <% if @Mo[n].definitely %>class="red"<% end %> ><%= @Mo[n].name %></span><br>
+                            
+                                <%= link_to "編集",edit_subject_path(@Mo[n]) %> | <%= link_to "削除",@Mo[n],method: :delete %>
+                            <% end %></td>
+                        <td><% if @Tu[n] != "" %>
+                                <span <% if @Tu[n].definitely %>class="red"<% end %> ><%= @Tu[n].name %></span><br>
+                            
+                                <%= link_to "編集",edit_subject_path(@Tu[n]) %> | <%= link_to "削除",@Tu[n],method: :delete %>
+                            <% end %></td>
+                        <td><% if @We[n] != "" %>
+                                <span <% if @We[n].definitely %>class="red"<% end %> ><%= @We[n].name %></span><br>
+                            
+                                <%= link_to "編集",edit_subject_path(@We[n]) %> | <%= link_to "削除",@We[n],method: :delete %>
+                            <% end %></td>
+                        <td><% if @Th[n] != "" %>
+                                <span <% if @Th[n].definitely %>class="red"<% end %> ><%= @Th[n].name %></span><br>
+                            
+                                <%= link_to "編集",edit_subject_path(@Th[n]) %> | <%= link_to "削除",@Th[n],method: :delete %>
+                            <% end %></td>
+                        <td><% if @Fr[n] != "" %>
+                                <span <% if @Fr[n].definitely %>class="red"<% end %> ><%= @Fr[n].name %></span><br>
+                            
+                                <%= link_to "編集",edit_subject_path(@Fr[n]) %> | <%= link_to "削除",@Fr[n],method: :delete %>
+                            <% end %></td>
+                        <td><% if @Sa[n] != "" %>
+                                <span <% if @Sa[n].definitely %>class="red"<% end %> ><%= @Sa[n].name %></span><br>
+                            
+                                <%= link_to "編集",edit_subject_path(@Sa[n]) %> | <%= link_to "削除",@Sa[n],method: :delete %>
+                            <% end %></td>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+<%= link_to 'リセット',destroy_all_subjects_path,method: :delete,data: { confirm: "時間割をリセットします。よろしいですか？"},class: "btn btn-danger white" %>
+    </div>
+</div>
+

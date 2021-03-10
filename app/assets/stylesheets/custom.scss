@@ -1,0 +1,462 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/* mixins, variables, etc. */
+
+$gray-medium-light: #eaeaea;
+
+@mixin box_sizing {
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:         border-box;
+}
+
+/* universal */
+* {
+  padding: 0;
+  margin: 0;
+  
+}
+
+body {
+  padding-top: 50px;
+  background-image: image-url('joanna-kosinska-LAaSoL0LrYs-unsplash.jpg');
+  background-size: cover;
+  width: 100%;
+
+}
+
+header {
+  margin-bottom: 0;
+}
+
+
+
+.main {
+  
+  background-image: image-url('joanna-kosinska-LAaSoL0LrYs-unsplash.jpg');
+  background-size: cover;
+  width: 100%;
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.center {
+  text-align: center;
+  h1 {
+    margin-bottom: 10px;
+  }
+}
+
+/* typography */
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+}
+
+h1 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.2em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  color: $gray-light;
+}
+
+p {
+  font-size: 1.1em;
+  line-height: 1.7em;
+}
+
+
+/* header */
+.right {
+  display: none;
+  float: right;
+  
+  @media screen and (max-width: 768px) {
+    display: block;
+  }
+  
+}
+
+.hanmemu {
+  color: white;
+  &:hover {
+    color: white;
+  }
+
+}
+
+#logo {
+  float: left;
+  margin-right: 10px;
+  font-size: 1.7em;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  font-weight: bold;
+  &:hover {
+    color: white;
+    text-decoration: none;
+  }
+}
+
+/* footer */
+
+footer {
+  position: absolute;/* ←絶対位置 */
+  right: 0.1%;
+  width: 100%;
+  bottom: 0;
+  border-top: 1px solid $gray-medium-light;
+  color: white;
+  a {
+    color: white;
+    text-decoration: none;
+    &:hover {
+      color: white;
+      opacity: 0.5;
+    }
+  }
+  small {
+    float: left;
+  }
+  ul {
+    float: right;
+    list-style: none;
+    li {
+      float: left;
+      margin-left: 15px;
+    }
+  }
+}
+
+.footerFixed{
+
+    min-height: 100vh; /* ←コンテンツの高さの最小値＝ブラウザの高さに指定 */
+    position: relative;/* ←相対位置 */
+    padding-bottom: 60px; /* ←フッターの高さを指定 */
+    box-sizing: border-box;
+    /* ↑ヘッダーやフッターを含むすべての要素の高さ＝min-height:100vhになるように指定 */
+}
+
+
+/* miscellaneous */
+
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
+}
+
+/* sidebar */
+
+aside {
+  section.user_info {
+    margin-top: 20px;
+  }
+  section {
+    padding: 10px 0;
+    margin-top: 20px;
+    &:first-child {
+      border: 0;
+      padding-top: 0;
+    }
+    span {
+      display: block;
+      margin-bottom: 3px;
+      line-height: 1;
+    }
+    h1 {
+      font-size: 1.4em;
+      text-align: left;
+      letter-spacing: -1px;
+      margin-bottom: 3px;
+      margin-top: 0px;
+    }
+  }
+}
+
+.gravatar {
+  float: left;
+  margin-right: 10px;
+}
+
+.gravatar_edit {
+  margin-top: 15px;
+}
+
+/* forms */
+
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width: 100%;
+  margin-bottom: 15px;
+  @include box_sizing;
+}
+
+input {
+  height: auto !important;
+}
+
+#error_explanation {
+  color: red;
+  ul {
+    color: red;
+    margin: 0 0 30px 0;
+  }
+}
+
+.field_with_errors {
+  @extend .has-error;
+  .form-control {
+    color: $state-danger-text;
+  }
+}
+
+.checkbox {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  span {
+    margin-left: 20px;
+    font-weight: normal;
+  }
+}
+
+#session_remember_me {
+  width: auto;
+  margin-left: 0;
+}
+
+#subject_definitely {
+  width: auto;
+  margin-left: 0;
+}
+
+.notice {
+  select {
+    width: auto;
+  }
+}
+
+/* Users index */
+
+.users {
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-bottom: 1px solid $gray-lighter;
+  }
+}
+
+#chart-2 {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.header-img {
+  max-width: 100%;
+  height: auto;
+}
+
+h1 {
+  margin-top: 50px;
+  color: white;
+  font-weight: bold;
+}
+
+.home {
+  position: relative;
+  height: 500px;
+  h1 {
+    position: absolute;
+    top: 40%;
+    left: 26.5%;
+    -ms-transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    margin:0;
+    padding:0;
+    color: white;
+    font-size: 6vw;
+    font-weight: bold;
+    
+    @media screen and (min-width: 0px) and (max-width: 600px) {
+      font-size: 37px;
+    }
+
+    @media screen and (min-width: 375px) and (max-width: 414px) {
+      left: 15%;
+    }
+
+    @media screen and (min-width: 0px) and (max-width: 375px) {
+      left: 12%;
+    }
+    
+  }
+}
+
+.wht {
+  padding: 30px;
+  background-color: white;
+  border-radius: 30px;
+}
+
+
+/* table   */
+
+.studytime {
+  margin-top: 30px;
+  a {
+    color: white;
+    text-decoration: none;
+    background: #6e87d7;
+    &:hover {
+      color : white;
+      opacity: 0.5;
+    }
+  }
+  table{
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  table tr *:nth-child(1){
+    background: #49c5f0;
+  }
+  
+  table tr *:nth-child(2){
+    background: #57b3e8;
+  }
+  
+  table tr *:nth-child(3){
+    background: #649cdf;
+  }
+  
+  table tr *:nth-child(4){
+    background: #6e87d7;
+  }
+  
+  table tr *:nth-child(5){
+    background: #6e87d7;
+  }
+  
+  table th,table td{
+    color:white;
+    border:solid 1px white;
+    text-align: center;
+    padding: 10px 0;
+  }
+
+}
+
+.subject {
+  a {
+    color: gray;
+    text-decoration: none;
+    &:hover {
+      color : gray;
+      opacity: 0.5;
+    }
+  }
+
+  table{
+    border-collapse:separate;
+    border-spacing: 5px;
+    width: 100%;
+    
+  }
+  
+  table th,table td{
+    border-radius: 5px;
+    text-align: center;
+    padding: 10px 0;
+
+  }
+  
+  table th{
+    background-color: #68CFC3;
+    color: white;
+    border:solid 1px #927141;
+  }
+  
+  table td{
+    background-color: #CAE7F2;
+    border:solid 1px #af9d85;
+  }
+
+  .white {
+    color: white;
+  }
+}
+
+.edit {
+  @media screen and (max-width: 994px) {
+    .wht {
+      padding-bottom: 80px;
+    }
+      
+  }
+}
+
+.bootstrap-date {
+  display: inline-block;
+  width: auto;
+}
+
+/* フェードイン用のCSS */
+.slide-bottom {
+   opacity: 0;
+   transform: translateY(20px);
+   transition: all 1.3s 0s ease-out;
+ }
+
+  /* 左からフェードイン */
+.slide-left {
+	opacity: 0;
+	transform: translate(-20px, 0);
+	transition: all 1s ease-out;
+ }
+
+/* 右からフェードイン */
+.slide-right {
+	opacity: 0;
+	transform: translate(20px, 0);
+	transition: all 1s ease-out;
+ }
+
+
+.black {
+  color: black;
+}
+
+.white {
+  color: white;
+}
+
+.red {
+  color: red;
+}
+
+.orange {
+  color: orange;
+}

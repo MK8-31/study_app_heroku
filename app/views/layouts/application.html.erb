@@ -1,16 +1,59 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>StudyAppAws</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title><%= full_title(yield(:title)) %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
+    
+    <%= render 'layouts/shim' %>
   </head>
 
   <body>
-    <%= yield %>
+    <%= render 'layouts/header' %>
+    <div class="container main footerFixed">
+      <% flash.each do |message_type,message| %>
+        <%= content_tag(:div,message,class: "alert alert-#{message_type}") %>
+      <% end %>
+        
+     <%= yield %>
+     
+     <%= debug(params) if Rails.env.development? %>
+     
+     <%= render 'layouts/footer' %>
+ 
+    </div>
+
+    <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+
+    <script>
+      $(function(){
+        $(window).on('load scroll', function() {
+          var winScroll = $(window).scrollTop();
+          var winHeight = $(window).height();
+          var scrollPos = winScroll + (winHeight * 0.8);
+
+          $(".show").each(function() {
+            if($(this).offset().top < scrollPos) {
+              $(this).css({opacity: 1, transform: 'translate(0, 0)'});
+            }
+          });
+
+          $(".showbtn").each(function() {
+            if($(this).offset().top-1100 < scrollPos) {
+              $(this).css({opacity: 1, transform: 'translate(0, 0)'});
+            }
+          });
+
+        });
+
+        scrollTo(0, 1);
+      });
+    </script>
   </body>
 </html>

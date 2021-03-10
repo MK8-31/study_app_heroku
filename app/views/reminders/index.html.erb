@@ -1,0 +1,28 @@
+<%= provide(:title,"通知リスト") %>
+<div class="row">
+<h1>通知された予定</h1>
+<p class="white center">通知された明日の予定が表示されます</p>
+    <div class="col wht">
+        
+        <% @reminders.each do |reminder| %>
+            <% if reminder.action == "warning" %>
+
+                <p>予定：<%= reminder.notification.subject %>　｜　予定日：<%= reminder.notification.start_time.strftime("%Y年%m月%d日 %H時%M分") %></p>
+            <% end %>
+        <% end %>
+    </div>
+
+    <h1>期日を過ぎた予定</h1>
+
+    <div class="col wht">
+        
+        <% @reminders.each do |reminder| %>
+            <% if reminder.action == "expired" %>
+
+                <p>予定：<%= reminder.notification.subject %>　｜　予定日：<%= reminder.notification.start_time.strftime("%Y年%m月%d日 %H時%M分") %></p>
+            <% end %>
+        <% end %>
+    </div>
+
+
+</div>

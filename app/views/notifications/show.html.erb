@@ -1,0 +1,17 @@
+<% provide(:title,"予定詳細") %>
+
+<% if @notice.homework_test %>
+    <h1>テスト詳細</h1>
+<% else %>
+    <h1>課題詳細</h1>
+<% end %>
+
+
+<div class="row">
+    <div class="col align-self-center wht text-center">
+        <b><%= @notice.subject %>　日付：<%= @notice.start_time.strftime("%Y-%m-%d") %>　<b>
+        <%= link_to '編集',edit_notification_path(@notice),class: "btn btn-info" %>
+        <%= link_to '削除',@notice,method: :delete,class: "btn btn-danger" %>
+    </div>
+</div>
+

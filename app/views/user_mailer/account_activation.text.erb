@@ -1,0 +1,8 @@
+<%= @user.name %>様、StudyAppへようこそ。
+===============================================
+
+StudyAppへのサインアップが成功しました。ユーザー名は「<%= @user.name %>」です。
+
+このサイトにログインするには、<%= edit_account_activation_url(@user.activation_token, email: @user.email) %>をクリックしてアカウントを有効化して下さい。
+
+本サイトにユーザー登録いただきありがとうございます。

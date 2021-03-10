@@ -1,0 +1,28 @@
+<% provide(:title,"時間割を追加") %>
+<h1>編集</h1>
+
+<div class="row">
+    <div class="col-md-6 col-md-offset-3 wht">
+        <%= form_with(model: @subject,local: true) do |f| %>
+            <%= render 'shared/error_messages', object: f.object %>
+
+            <p>科目名</p>
+            <%= f.text_field :name %>
+            
+            <p><%= t(@subject.day_of_week) %></p>
+            <%= f.hidden_field :day_of_week,:value => @subject.day_of_week %>
+            
+            <p><%= @subject.th_period %>時限目</p>
+            
+            <%= f.hidden_field :th_period,:value => @subject.th_period %>
+            
+            <%= f.label :definitely,class: "checkbox inline" do %>
+                <%= f.check_box :definitely,:value=> @subject.definitely %>
+                <span>必修科目</span>
+            <% end %>
+        
+            <%= f.submit "編集",class: "btn btn-primary" %>
+    <% end %>
+
+    </div>
+</div>

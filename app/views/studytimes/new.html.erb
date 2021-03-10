@@ -1,0 +1,24 @@
+<% provide(:title, "学習時間記録") %>
+
+
+<h1>学習時間記録</h1>
+<div class="row">
+    <div class="col-md-6 col-md-offset-3 wht">
+        <%= form_with(model: @studytime,local: true) do |f| %>
+            <%= render 'shared/error_messages',object: f.object %>
+            
+            <p>日付（今日の日付が表示されています）</p>
+            <%= f.date_field :day,value: Time.now.strftime("%Y-%m-%d") %>
+            
+            <p>合計時間（分）</p>
+            <%= f.number_field :time %>
+            
+            <p>集中できた時間（分）</p>
+            <%= f.number_field :ctime %>
+            
+            <%= f.submit "登録",class: "btn btn-primary" %>
+        <% end %>
+
+    </div>
+</div>
+

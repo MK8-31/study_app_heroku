@@ -1,0 +1,9 @@
+    <h1><%= @user.name %>様、StudyAppへようこそ。</h1>
+
+        <p>StudyAppへのサインアップが成功しました。</p>
+
+    <p>
+      このサイトにログインするには、<%= link_to "有効化", edit_account_activation_url(@user.activation_token,
+                                                    email: @user.email) %>をクリックしてアカウントの有効化をして下さい。
+    </p>
+    <p>ご登録ありがとうございます。どうぞお楽しみくださいませ。</p>
