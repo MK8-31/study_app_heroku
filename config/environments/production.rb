@@ -67,7 +67,10 @@ Rails.application.configure do
   #gmail
 
   #deviseが認証用のURLなどを生成するのに必要になる（らしい）
-  config.action_mailer.default_url_options = {  :host => 'https://pure-forest-07842.herokuapp.com' }
+  #heroku
+  # config.action_mailer.default_url_options = {  :host => 'https://pure-forest-07842.herokuapp.com' }
+  #aws
+  config.action_mailer.default_url_options = {  :host => 'https://www.study-app.tk' }
   #送信方法を指定（この他に:sendmail/:file/:testなどがあります)
   config.action_mailer.delivery_method = :smtp
   #送信方法として:smtpを指定した場合は、このconfigを使って送信詳細の設定を行います
