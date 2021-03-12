@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
+  root to: 'static_pages#home'
   get 'notifications/show'
+  get 'static_pages/home'
   get 'notifications/new'
   get 'studytimes/show'
   get 'studytimes/new'
@@ -10,7 +12,6 @@ Rails.application.routes.draw do
   get 'password_resets/edit'
   get 'users/new'
   get 'sessions/new'
-  root to: 'static_pages#home'
   get 'static_pages/home'
   get 'contact',to: 'static_pages#contact'
   get 'for_me',to: 'static_pages#for_me'
