@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root to: 'static_pages#home'
   get '/', to: 'static_pages#home'
   get 'notifications/show'
-  get 'static_pages/home'
+  get '/home',to: 'static_pages#home'
   get 'notifications/new'
   get 'studytimes/show'
   get 'studytimes/new'
