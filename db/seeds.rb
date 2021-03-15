@@ -145,15 +145,18 @@ end
     start_time = DateTime.new(Date.today.year,Date.today.month,n,12,00,00)
     over = false
     user = User.first
-    if n%2 == 0
-        if n%3==0
-            homework_test = true
-            user.notifications.create!(subject: subject,start_time: start_time,homework_test: homework_test,over: over)
-        else
-            homework_test = false 
-            user.notifications.create!(subject: subject,start_time: start_time,homework_test: homework_test,over: over)
-        end         
-    end 
+    user.notifications.create!(subject: subject,start_time: Date.tomorrow.day,homework_test: homework_test,over: over)
+    if n != Date.tomorrow.day 
+        if n%2 == 0
+            if n%3==0
+                homework_test = true
+                user.notifications.create!(subject: subject,start_time: start_time,homework_test: homework_test,over: over)
+            else
+                homework_test = false 
+                user.notifications.create!(subject: subject,start_time: start_time,homework_test: homework_test,over: over)
+            end         
+        end 
+    end
     
 end 
 
@@ -162,15 +165,17 @@ end
     start_time = DateTime.new(Date.today.year,Date.today.month,n,12,00,00)
     over = false
     user = User.second
-    if n%2 == 0
-        if n%3==0
-            homework_test = true
-            user.notifications.create!(subject: subject,start_time: start_time,homework_test: homework_test,over: over)
-        else
-            homework_test = false 
-            user.notifications.create!(subject: subject,start_time: start_time,homework_test: homework_test,over: over)
-        end         
-    end 
+    if != Date.tomorrow.day 
+        if n%2 == 0
+            if n%3==0
+                homework_test = true
+                user.notifications.create!(subject: subject,start_time: start_time,homework_test: homework_test,over: over)
+            else
+                homework_test = false 
+                user.notifications.create!(subject: subject,start_time: start_time,homework_test: homework_test,over: over)
+            end         
+        end 
+    end
     
 end 
 
@@ -179,15 +184,17 @@ end
     start_time = DateTime.new(Date.today.year,Date.today.month,n,12,00,00)
     over = false
     user = User.third
-    if n%2 == 0
-        if n%3==0
-            homework_test = true
-            user.notifications.create!(subject: subject,start_time: start_time,homework_test: homework_test,over: over)
-        else
-            homework_test = false 
-            user.notifications.create!(subject: subject,start_time: start_time,homework_test: homework_test,over: over)
-        end         
-    end 
+    if != Date.tomorrow.day 
+        if n%2 == 0
+            if n%3==0
+                homework_test = true
+                user.notifications.create!(subject: subject,start_time: start_time,homework_test: homework_test,over: over)
+            else
+                homework_test = false 
+                user.notifications.create!(subject: subject,start_time: start_time,homework_test: homework_test,over: over)
+            end         
+        end 
+    end
     
 end 
 
