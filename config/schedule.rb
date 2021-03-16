@@ -17,7 +17,7 @@ ENV.each { |k, v| env(k, v) } # これを追加
 # cronのログの吐き出し場所
 set :output, "#{Rails.root}/log/cron.log"
 
-every 5.minutes do
+every 1.days do
     rake 'notification:reminder'
 end
 #
