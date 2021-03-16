@@ -14,18 +14,18 @@ services:
       - log-data:/study_app_aws/log
     networks:
       - study_app_aws-network
-    # environment:  #capybara用のの設定で使っていた
-    #   - "SELENIUM_DRIVER_URL=http://selenium_chrome:4444/wd/hub" # 追記
-    #本番環境ではコメントアウト
-    # depends_on:
-    #   - db
-    #   - chrome
+  #   environment:  #capybara用のの設定で使っていた
+  #     - "SELENIUM_DRIVER_URL=http://selenium_chrome:4444/wd/hub" # 追記
+  #   #本番環境ではコメントアウト
+  #   depends_on:
+  #     - db
+  #     - chrome
 
   # chrome:
   #   image: selenium/standalone-chrome:latest # 追記
   #   ports:
   #     - 4444:4444
-  #
+  
 
 
   # db:

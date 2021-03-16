@@ -139,13 +139,12 @@ end
 end 
 
 
-
+User.first.notifications.create!(subject: "物理学",start_time: Date.tomorrow,homework_test: false,over: false)
 (1..28).each do |n|
     subject = "subject-#{n}"
     start_time = DateTime.new(Date.today.year,Date.today.month,n,12,00,00)
     over = false
     user = User.first
-    user.notifications.create!(subject: subject,start_time: Date.tomorrow.day,homework_test: homework_test,over: over)
     if n != Date.tomorrow.day 
         if n%2 == 0
             if n%3==0
@@ -165,7 +164,7 @@ end
     start_time = DateTime.new(Date.today.year,Date.today.month,n,12,00,00)
     over = false
     user = User.second
-    if != Date.tomorrow.day 
+    if n != Date.tomorrow.day 
         if n%2 == 0
             if n%3==0
                 homework_test = true
@@ -184,7 +183,7 @@ end
     start_time = DateTime.new(Date.today.year,Date.today.month,n,12,00,00)
     over = false
     user = User.third
-    if != Date.tomorrow.day 
+    if n != Date.tomorrow.day 
         if n%2 == 0
             if n%3==0
                 homework_test = true

@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2021_02_13_014852) do
 
-  create_table "notifications", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "notifications", charset: "utf8", force: :cascade do |t|
     t.string "subject"
     t.datetime "start_time"
     t.boolean "homework_test"
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 2021_02_13_014852) do
     t.index ["user_id"], name: "index_notifications_on_user_id"
   end
 
-  create_table "reminders", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "reminders", charset: "utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "notification_id", null: false
     t.integer "action"
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2021_02_13_014852) do
     t.index ["user_id"], name: "index_reminders_on_user_id"
   end
 
-  create_table "studytimes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "studytimes", charset: "utf8", force: :cascade do |t|
     t.integer "time"
     t.integer "ctime"
     t.date "day"
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 2021_02_13_014852) do
     t.index ["user_id"], name: "index_studytimes_on_user_id"
   end
 
-  create_table "subjects", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "subjects", charset: "utf8", force: :cascade do |t|
     t.string "name"
     t.string "day_of_week"
     t.integer "th_period"
@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 2021_02_13_014852) do
     t.index ["user_id"], name: "index_subjects_on_user_id"
   end
 
-  create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "users", charset: "utf8", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.datetime "created_at", precision: 6, null: false
