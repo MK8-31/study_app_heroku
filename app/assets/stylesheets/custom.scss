@@ -315,6 +315,29 @@ h1 {
   }
 }
 
+.mb {
+  margin-bottom: 30px;
+}
+
+.homeex {
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    border: dashed 2px black; 
+    background-color:rgba(196,196,196,0.8);
+    
+    h2 {
+      font-size: 30px;
+      font-weight: bold;
+    }
+}
+
+.homeskil {
+  li {
+    font-size: 20px;
+  }
+  margin-bottom: 60px;
+}
+
 .wht {
   padding: 30px;
   background-color: white;
