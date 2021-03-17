@@ -4,8 +4,8 @@ services:
     build:
       context: .
 # =========ローカルと本番切り替え===========
-    # command: bundle exec puma -C config/puma.rb -e production
-    command: bundle exec puma -C config/puma.rb
+    command: bundle exec puma -C config/puma.rb -e production
+    # command: bundle exec puma -C config/puma.rb
 # ======================================
     volumes:
       - .:/study_app_aws
@@ -14,32 +14,32 @@ services:
       - log-data:/study_app_aws/log
     networks:
       - study_app_aws-network
-    environment:  #capybara用のの設定で使っていた
-      - "SELENIUM_DRIVER_URL=http://selenium_chrome:4444/wd/hub" # 追記
-    #本番環境ではコメントアウト
-    depends_on:
-      - db
-      - chrome
+  #   environment:  #capybara用のの設定で使っていた
+  #     - "SELENIUM_DRIVER_URL=http://selenium_chrome:4444/wd/hub" # 追記
+  #   #本番環境ではコメントアウト
+  #   depends_on:
+  #     - db
+  #     - chrome
 
-  chrome:
-    image: selenium/standalone-chrome:latest # 追記
-    ports:
-      - 4444:4444
+  # chrome:
+  #   image: selenium/standalone-chrome:latest # 追記
+  #   ports:
+  #     - 4444:4444
   
 
 
-  db:
-    image: mysql:8.0
-    command: --default-authentication-plugin=mysql_native_password
-    environment:
-      MYSQL_ROOT_PASSWORD: password
-      MYSQL_USER: user
-      MYSQL_PASSWORD: password
-      MYSQL_DATABASE: study_app_aws_development
-    volumes:
-      - db-data:/var/lib/mysql
-    networks:
-      - study_app_aws-network
+  # db:
+  #   image: mysql:8.0
+  #   command: --default-authentication-plugin=mysql_native_password
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: password
+  #     MYSQL_USER: user
+  #     MYSQL_PASSWORD: password
+  #     MYSQL_DATABASE: study_app_aws_development
+  #   volumes:
+  #     - db-data:/var/lib/mysql
+  #   networks:
+  #     - study_app_aws-network
 
   web:
     build:
