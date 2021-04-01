@@ -62,6 +62,7 @@ RSpec.describe User, type: :model do
 
         it 'passwordは6文字以上' do
             @user.password = "a"*5
+            @user.password_confirmation = "a"*5
             is_expected.to eq(false)
         end
 
