@@ -1,4 +1,4 @@
-FROM ruby:2.7.0
+FROM ruby:2.7.2
 
 # リポジトリを更新し依存モジュールをインストール
 RUN apt-get update -qq && \
