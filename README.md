@@ -10,7 +10,7 @@ Study Appは大学生向けに作った時間管理アプリです。
 
 # URL
  
-<https://www.study-app.tk>
+https://intense-journey-27786.herokuapp.com
   
   
 # 使用技術
@@ -55,4 +55,4 @@ Study Appは大学生向けに作った時間管理アプリです。
  
 # 機能について
 
-通知はwhenever gemを使い、config/schedule.rbにlib/tasks/reminder.rakeを一日一回実行するように設定しているため行われます。
+通知はheroku scheduler を使いlib/tasks/reminder.rakeを一日一回実行するようにして行われます。
