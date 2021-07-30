@@ -15,13 +15,23 @@ test:
   <<: *default
   database: study_app_aws_test
 
+# production:
+#   <<: *default
+#   database: <%= ENV['DB_DATABASE'] %>
+#   adapter: mysql2
+#   encoding: utf8mb4
+#   charset: utf8mb4
+#   collation: utf8mb4_general_ci
+#   host: <%= ENV['DB_HOST'] %>
+#   username: <%= ENV['DB_USERNAME'] %>
+#   password: <%= ENV['DB_PASSWORD'] %>
+
 production:
-  <<: *default
-  database: <%= ENV['DB_DATABASE'] %>
-  adapter: mysql2
-  encoding: utf8mb4
-  charset: utf8mb4
-  collation: utf8mb4_general_ci
-  host: <%= ENV['DB_HOST'] %>
-  username: <%= ENV['DB_USERNAME'] %>
-  password: <%= ENV['DB_PASSWORD'] %>
+  adapter: postgresql
+  encoding: utf8
+  # For details on connection pooling, see Rails configuration guide
+  # https://railsguides.jp/configuring.html#データベース接続をプールする
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  database: lvup_app_production
+  username: lvup_app
+  password: <%= ENV['LVUP_APP_DATABASE_PASSWORD'] %>
