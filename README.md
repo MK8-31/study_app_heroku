@@ -16,16 +16,10 @@ https://intense-journey-27786.herokuapp.com
 # 使用技術
  
  
-* Ruby 2.7.0
+* Ruby 2.7.
 * ruby on rails 6.1.3
-* Mysql 8.0
 * Nginx
 * Puma
-* AWS
-  * VPC
-  * EC2
-  * RDS
-  * ELB
 * Docker/Docker-compose
 * RSpec
 * jquery
