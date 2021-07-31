@@ -1,7 +1,7 @@
 User.create!(name: "Example User",
              email: "example@yakhoo.coma",
-             password: "foobar",
-             password_confirmation: "foobar",
+             password: "foobarMS1029",
+             password_confirmation: "foobarMS1029",
              admin: true,
              activated: true,
              activated_at: Time.zone.now)
@@ -9,7 +9,7 @@ User.create!(name: "Example User",
 21.times do |n|
     name = Faker::Name.name
     email = "example-#{n+1}@yakhoo.coa.jp"
-    password = "password"
+    password = "passwordBAR2020"
     
     User.create!(name: name,
                  email: email,
